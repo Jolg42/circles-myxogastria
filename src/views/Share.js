@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Container, IconButton } from '@material-ui/core';
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -11,6 +11,7 @@ import ShareBox from '~/components/ShareBox';
 import View from '~/components/View';
 import { useProfileLink } from '~/hooks/url';
 import translate from '~/services/locale';
+import { IconEdit } from '~/styles/icons';
 
 const Share = () => {
   const safe = useSelector((state) => state.safe);
@@ -22,6 +23,9 @@ const Share = () => {
       <Header>
         <ButtonBack />
         <CenteredHeading>{translate('Share.headingShare')}</CenteredHeading>
+        <IconButton edge="end" text="" url="editLink" onClick={() => {}}>
+          <IconEdit />
+        </IconButton>
       </Header>
       <View>
         <Container maxWidth="sm">
