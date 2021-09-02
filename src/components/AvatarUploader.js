@@ -90,7 +90,10 @@ const AvatarUploader = ({ onLoadingChange, onUpload, value }) => {
         ref={fileInputElem}
         style={{ display: 'none' }}
         type="file"
-        onChange={handleChange}
+        onChange={() => {
+          console.log('FAKE POSTING NOW');
+          setTimeout(() => {}, 500);
+        }}
       />
     </Fragment>
   );

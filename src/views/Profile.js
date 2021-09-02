@@ -45,6 +45,7 @@ import {
 import { checkTrustState } from '~/store/trust/actions';
 import {
   IconActivity,
+  IconEdit,
   IconFriends,
   IconShare,
   IconTrust,
@@ -91,6 +92,8 @@ const Profile = () => {
   });
 
   const safe = useSelector((state) => state.safe);
+  const editLink = '';
+  const editText = '';
   const shareLink = useProfileLink(address);
   const shareText = translate('Profile.shareText', { shareLink });
 
@@ -101,13 +104,18 @@ const Profile = () => {
     return <NotFound />;
   }
 
+  const onEdit = () => {};
+
   return (
     <Fragment>
       <Header>
-        <ButtonBack />
+        <ButtonBack edge="start" />
         <CenteredHeading>
           <UsernameDisplay address={address} />
         </CenteredHeading>
+        <IconButton edge="end" text={editText} url={editLink} onClick={onEdit}>
+          <IconEdit />
+        </IconButton>
         <ButtonShare edge="end" isIcon text={shareText} url={shareLink}>
           <IconShare />
         </ButtonShare>
